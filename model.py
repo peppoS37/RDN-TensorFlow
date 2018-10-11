@@ -329,6 +329,7 @@ class RDN(object):
             # time_ = time.time()
             # result = np.asarray(eng.imresize(matlab.double((input_[0, :] / 255.0).tolist()), config.scale, 'bicubic'))
             # avg_time += time.time() - time_
+            tf.train.write_graph(self.sess.graph_def, './', 'tfRDN.pbtxt', as_text=False)  
 
             self.sess.close()
             tf.reset_default_graph()
