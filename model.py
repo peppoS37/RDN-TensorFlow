@@ -371,6 +371,7 @@ class RDN(object):
             time_ = time.time()
             result = self.sess.run([self.pred], feed_dict={self.images: input_ / 255.0})
             avg_time += time.time() - time_
+            tf.train.write_graph(self.sess.graph_def, './', 'tfRDN.pbtxt', as_text=False)  
 
             self.sess.close()
             tf.reset_default_graph()
